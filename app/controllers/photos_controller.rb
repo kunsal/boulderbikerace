@@ -8,12 +8,12 @@ class PhotosController < ApplicationController
     per_page = params[:per_page].length > 0 ? params[:per_page] : 10
 
     url = URI("https://www.flickr.com/services/rest/?
-          method=flickr.photos.getRecent&
+          method=flickr.photos.search&
           api_key=8a127f3f507ce1c4f302bc17a64dd455&extras=&
           per_page=#{per_page}&
           page=#{page}&
           format=json&
-          tags=bike&
+          tags=bikes,bike,bicycle,bikerace&
           nojsoncallback=1")
 
     https = Net::HTTP.new(url.host, url.port)
